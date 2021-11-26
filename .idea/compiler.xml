@@ -5,6 +5,7 @@
       <module name="ModularAndroidApp.app" target="11" />
       <module name="ModularAndroidApp.buildSrc" target="11" />
       <module name="ModularAndroidApp.components" target="11" />
+      <module name="ModularAndroidApp.hero.hero-datasource" target="1.8" />
       <module name="ModularAndroidApp.hero.ui-heroDetail" target="11" />
       <module name="ModularAndroidApp.hero.ui-heroList" target="11" />
     </bytecodeTargetLevel>

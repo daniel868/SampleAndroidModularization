@@ -1,9 +1,21 @@
 plugins {
-    id ("java-library")
-    id ("kotlin")
+    id("java-library")
+    id("kotlin")
+    kotlin(KotlinPlugins.serialization) version "1.5.30"
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
+dependencies {
+
+    "implementation"(project(Modules.heroDomain))
+
+    "implementation"(Ktor.core)
+    "implementation"(Ktor.clientSerialization)
+    "implementation"(Ktor.android)
+
 }
+
+

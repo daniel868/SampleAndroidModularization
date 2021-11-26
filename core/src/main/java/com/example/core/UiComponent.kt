@@ -8,6 +8,7 @@ sealed class UiComponent {
     ) : UiComponent()
 
     data class None(
+        val title: String,
         val message: String
-    )
+    ) : UiComponent()
 }
