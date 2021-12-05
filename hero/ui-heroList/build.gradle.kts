@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    kotlin("kapt")
 }
 
 android {
@@ -46,11 +47,21 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
 
     implementation(Compose.activity)
     implementation(Compose.ui)
     implementation(Compose.material)
     implementation(Compose.navigation)
+    implementation(Coil.coil)
+    implementation(Compose.navigation)
+    implementation(Hilt.hiltAndroid)
+    kapt(Hilt.hiltCompiler)
+
+    implementation(project(Modules.core))
+    implementation(project(Modules.heroDomain))
+    implementation(project(Modules.heroInteractors))
+    implementation(SQLDelight.androidDriver)
 
 
 }

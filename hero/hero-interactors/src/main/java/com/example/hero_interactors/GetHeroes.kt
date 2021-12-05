@@ -4,6 +4,7 @@ import com.example.core.DataState
 import com.example.core.Logger
 import com.example.core.ProgressBarState
 import com.example.core.UiComponent
+import com.example.hero_datasource.cache.HeroCache
 import com.example.hero_datasource.network.HeroService
 import com.example.hero_domain.Hero
 import kotlinx.coroutines.delay
@@ -12,13 +13,12 @@ import kotlinx.coroutines.flow.flow
 
 class GetHeroes(
     private val service: HeroService,
+    private val cache: HeroCache
     //TODO: add caching
 ) {
     fun execute(): Flow<DataState<List<Hero>>> = flow {
         try {
             emit(DataState.Loading<List<Hero>>(progressBarState = ProgressBarState.Loading))
-
-            delay(3000)
 
             val heroes: List<Hero> = try {
                 service.getHeroStats()
@@ -36,9 +36,14 @@ class GetHeroes(
                 listOf()
             }
 
-            //TODO: Caching
+            //cache the network data
+            cache.insert(heroes)
 
-            emit(DataState.Data(data = heroes))
+            //emit data from cache
+
+            val cachedHeroes = cache.selectAll()
+
+            emit(DataState.Data(data = cachedHeroes))
 
         } catch (e: Exception) {
             e.printStackTrace()

@@ -39,6 +39,10 @@ sealed class HeroRole(
         "Pusher"
     )
 
+    object Disabler : HeroRole(
+        uiValue = "Disabler"
+    )
+
     object Unknown : HeroRole(
         "Unknown"
     )
@@ -72,6 +76,9 @@ fun getHeroRole(uiValue: String): HeroRole {
         }
         HeroRole.Pusher.uiValue -> {
             HeroRole.Pusher
+        }
+        HeroRole.Disabler.uiValue -> {
+            HeroRole.Disabler
         }
         else -> {
             HeroRole.Unknown
