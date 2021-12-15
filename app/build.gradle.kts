@@ -51,9 +51,7 @@ dependencies {
     implementation(project(Modules.heroDomain))
     implementation(project(Modules.heroInteractors))
     implementation(project(Modules.ui_heroList))
-
-
-
+    implementation(project(Modules.ui_heroDetail))
 
     implementation("androidx.core:core-ktx:1.6.0")
     implementation("androidx.appcompat:appcompat:1.3.1")

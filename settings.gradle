@@ -19,3 +19,5 @@ include ':hero:ui-heroList'
 include ':hero:ui-heroDetail'
 
 include ':components'
+include ':hero:ui-heroDetails'
+include ':hero:detail_screen'

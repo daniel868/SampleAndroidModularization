@@ -1,6 +1,7 @@
 package com.example.modularandroidapp.di
 
 import android.app.Application
+import coil.ImageLoader
 import com.example.hero_interactors.HeroInteractors
 import com.squareup.sqldelight.android.AndroidSqliteDriver
 import com.squareup.sqldelight.db.SqlDriver
@@ -30,5 +31,6 @@ object HeroInteractorsModule {
     ): HeroInteractors {
         return HeroInteractors.build(sqlDriver = sqlDriver)
     }
+
 
 }
