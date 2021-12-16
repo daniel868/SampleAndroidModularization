@@ -51,6 +51,7 @@ dependencies {
     implementation(Compose.ui)
     implementation(Compose.material)
     implementation(Compose.navigation)
+    implementation(project(mapOf("path" to ":core")))
 
 
 }

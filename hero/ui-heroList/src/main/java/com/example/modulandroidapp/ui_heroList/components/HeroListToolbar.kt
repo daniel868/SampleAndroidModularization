@@ -26,7 +26,8 @@ import androidx.compose.ui.unit.dp
 fun HeroListToolbar(
     heroName: String,
     onHeroNameChange: (String) -> Unit,
-    onExecuteSearch: () -> Unit
+    onExecuteSearch: () -> Unit,
+    onShowFilterDialog: () -> Unit
 ) {
     val keyboardController = LocalSoftwareKeyboardController.current
     Surface(
@@ -67,7 +68,7 @@ fun HeroListToolbar(
             Column(modifier = Modifier
                 .align(Alignment.CenterVertically)
                 .clickable {
-
+                    onShowFilterDialog()
                 }) {
                 Icon(
                     modifier = Modifier.padding(8.dp),

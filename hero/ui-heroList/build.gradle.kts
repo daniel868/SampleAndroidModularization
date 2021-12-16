@@ -58,6 +58,7 @@ dependencies {
     implementation(Hilt.hiltAndroid)
     kapt(Hilt.hiltCompiler)
 
+  //  implementation(project(Modules.components))
     implementation(project(Modules.core))
     implementation(project(Modules.heroDomain))
     implementation(project(Modules.heroInteractors))

@@ -3,6 +3,7 @@ package com.example.modularandroidapp
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var imageLoader: ImageLoader
 
+    @ExperimentalAnimationApi
     @ExperimentalComposeUiApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +47,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+@ExperimentalAnimationApi
 @ExperimentalComposeUiApi
 fun NavGraphBuilder.addHeroList(
     navController: NavController,

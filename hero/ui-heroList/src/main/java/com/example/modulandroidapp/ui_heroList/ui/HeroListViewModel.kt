@@ -47,6 +47,12 @@ class HeroListViewModel @Inject constructor(
             HeroListEvents.FilterHeroes -> {
                 filterHeroes()
             }
+            is HeroListEvents.ShowFilterDialog -> {
+                state.value = state.value.copy(filterDialogState = event.uiComponentState)
+            }
+            is HeroListEvents.UpdateHeroFilter -> {
+                updateHeroFilter(event.heroFilter)
+            }
         }
     }
 
@@ -82,10 +88,15 @@ class HeroListViewModel @Inject constructor(
         val filteredList = filterHeroes.execute(
             current = state.value.heroes,
             heroName = state.value.heroName,
-            heroFilter = HeroFilter.Hero(FilterOrder.Ascending),
+            heroFilter = state.value.heroFilter,
             attribute = HeroAttribute.Unknown
         )
         state.value = state.value.copy(filterHeroes = filteredList)
+    }
+
+    private fun updateHeroFilter(heroFilter: HeroFilter) {
+        state.value = state.value.copy(heroFilter = heroFilter)
+        filterHeroes()
     }
 
 }
